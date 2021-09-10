@@ -9,10 +9,15 @@ public class PlayerShipMovement : MonoBehaviour
     [SerializeField] private float maxVeloxity;
     [SerializeField] private float rotationSpeed;
 
+    [SerializeField] private GameObject thruster;
+    [SerializeField] private float lastThrust;
+    [SerializeField] private float showThrustFor;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        thruster.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,6 +29,11 @@ public class PlayerShipMovement : MonoBehaviour
         ApplyForwardThrust(yInput);
         ApplyRotation(transform, xInput * rotationSpeed);
         ClampVelocity();
+
+        if(Time.time - lastThrust >= showThrustFor)
+        {
+            thruster.SetActive(false);
+        }
     }
 
     private void ClampVelocity()
@@ -32,11 +42,16 @@ public class PlayerShipMovement : MonoBehaviour
         float yVelClamped = Mathf.Clamp(rigidBody.velocity.y, -maxVeloxity, maxVeloxity);
         rigidBody.velocity = new Vector2(xVelClamped, yVelClamped);
     }
-
+    private float additionalThrust = 2.0f;
     private void ApplyForwardThrust(float factor)
     {
+        if(factor >= 0.01f)
+        {
+            thruster.SetActive(true);
+            lastThrust = Time.time;
+        }
         // Up == forward in this setup
-        Vector2 force = transform.up * factor;
+        Vector2 force = transform.up * factor * additionalThrust;
         rigidBody.AddForce(force);
 
     }
