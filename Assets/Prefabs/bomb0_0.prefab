@@ -146,7 +146,7 @@ MonoBehaviour:
   baseDamage: 5
   baseRadius: 3
   explodeDelay: 0.4
-  maxRadius: 12
+  maxRadius: 9
 --- !u!61 &-1700152347871677879
 BoxCollider2D:
   m_ObjectHideFlags: 0

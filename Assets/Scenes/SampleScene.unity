@@ -932,7 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875c7ee2a44594f55872a54078991e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombCount: 5
+  bombCount: 8
   bombCountText: {fileID: 1397846569}
 --- !u!114 &1383940396
 MonoBehaviour:
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bombs: 5'
+  m_text: 'Bombs: 8'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

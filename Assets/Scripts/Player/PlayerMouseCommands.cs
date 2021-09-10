@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMouseCommands : MonoBehaviour
 {
+
+    private PlayerShipCombat combat;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        combat = GetComponent<PlayerShipCombat>();
     }
 
     // Update is called once per frame
@@ -21,9 +22,18 @@ public class PlayerMouseCommands : MonoBehaviour
 
             if (hit.collider.CompareTag("Bomb"))
             {
-                Debug.Log("Clicked Bomb");
                 hit.collider.GetComponent<Bomb>().Explode();
             }
+        }
+
+
+        // TESTING: Spawn bomb at mouse loc
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("REMOVE THIS BEFORE BUILD");
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameObject b = combat.DropBomb();
+            b.transform.position = pos;
         }
 
     }

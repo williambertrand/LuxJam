@@ -29,6 +29,7 @@ public class PlayerShipCombat : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        inventory = GetComponent<PlayerInventory>();
     }
 
     private void Fire()
@@ -40,13 +41,18 @@ public class PlayerShipCombat : MonoBehaviour
         lastFire = Time.time;
     }
 
-    private void DropBomb()
+    // NOTE: Temporarily public and returning the bomb for util elsewhere
+    public GameObject DropBomb()
     {
+        if (!inventory.ExpendBomb()) return null;
+
         GameObject pro = ObjectPooler.Instance.SpawnFromPool(bombTag, dropPos.position, transform.rotation);
         Vector2 dropVel = rigidBody.velocity * 0.85f;
         pro.GetComponent<Rigidbody2D>().velocity = dropVel;
         pro.GetComponent<Rigidbody2D>().angularVelocity = 30;
         lastDrop = Time.time;
+
+        return pro;
     }
 
     void Update()

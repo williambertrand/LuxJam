@@ -23,7 +23,7 @@ public class PlayerInventory : MonoBehaviour
         
     }
 
-    bool ExpendBomb()
+    public bool ExpendBomb()
     {
         if(bombCount > 0)
         {
