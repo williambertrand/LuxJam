@@ -16,6 +16,12 @@ public class Projectile : MonoBehaviour
             Enemy hit = collision.gameObject.GetComponent<Enemy>();
             hit.TakeDamage(damage);
         }
+
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            Bomb hit = collision.gameObject.GetComponent<Bomb>();
+            hit.Explode();
+        }
         // This removes the projectile when it hits out board bounds
         gameObject.SetActive(false); // This object is pooled so dont destroy it 
     }

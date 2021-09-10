@@ -49,7 +49,6 @@ public class PlayerShipCombat : MonoBehaviour
         lastDrop = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("space"))

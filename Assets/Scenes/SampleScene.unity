@@ -645,6 +645,9 @@ MonoBehaviour:
   - tag: Bomb0
     prefab: {fileID: 564333983053098504, guid: bc1bc98555d084140b831f04597be547, type: 3}
     capacity: 20
+  - tag: Explosion0
+    prefab: {fileID: 7770465059929415032, guid: 6826f1726df6a42569091ec4a0e878c0, type: 3}
+    capacity: 20
 --- !u!4 &847985934
 Transform:
   m_ObjectHideFlags: 0
@@ -836,6 +839,7 @@ GameObject:
   - component: {fileID: 1383940393}
   - component: {fileID: 1383940394}
   - component: {fileID: 1383940395}
+  - component: {fileID: 1383940396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -930,6 +934,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombCount: 5
   bombCountText: {fileID: 1397846569}
+--- !u!114 &1383940396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383940390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a1eaa3c6b414a0dbba130f9734053a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1397846567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1202,7 @@ Transform:
   m_GameObject: {fileID: 1528888244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 35.24871}
-  m_LocalScale: {x: 25.909859, y: 15.791823, z: 1}
+  m_LocalScale: {x: 45, y: 35, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
@@ -1203,7 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9477ddb40cef547d486ae55ffca6dbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveFactor: 0.1
+  moveFactor: 0.05
 --- !u!1 &1572514890
 GameObject:
   m_ObjectHideFlags: 0
