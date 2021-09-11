@@ -34,19 +34,18 @@ public class PlayerShipCombat : MonoBehaviour
 
     private void Fire()
     {
-        GameObject pro = ObjectPooler.Instance.SpawnFromPool(projectileTag, attackPos.position, transform.rotation);
+        PoolableObject pro = ObjectPooler.Instance.SpawnFromPool(projectileTag, attackPos.position, transform.rotation);
         Vector2 projectileVel = transform.up * projectileSpeed;
         pro.GetComponent<Rigidbody2D>().velocity = rigidBody.velocity + projectileVel;
-        pro.GetComponent<TTL>().OnSpawn(); // Used for deleting projectile after it's been "alive" for too much time
         lastFire = Time.time;
     }
 
     // NOTE: Temporarily public and returning the bomb for util elsewhere
-    public GameObject DropBomb()
+    public PoolableObject DropBomb()
     {
         if (!inventory.ExpendBomb()) return null;
 
-        GameObject pro = ObjectPooler.Instance.SpawnFromPool(bombTag, dropPos.position, transform.rotation);
+        PoolableObject pro = ObjectPooler.Instance.SpawnFromPool(bombTag, dropPos.position, transform.rotation);
         Vector2 dropVel = rigidBody.velocity * 0.85f;
         pro.GetComponent<Rigidbody2D>().velocity = dropVel;
         pro.GetComponent<Rigidbody2D>().angularVelocity = 30;

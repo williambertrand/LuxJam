@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TTL : MonoBehaviour
+public class PoolableObject : MonoBehaviour
 {
+    public bool hasTTL;
     public float duration;
     float spawnAt;
 
@@ -16,7 +17,7 @@ public class TTL : MonoBehaviour
     void Update()
     {
 
-        if (Time.time - spawnAt >= duration)
+        if (hasTTL && Time.time - spawnAt >= duration)
         {
             gameObject.SetActive(false);
         }

@@ -37,9 +37,8 @@ public class Bomb : MonoBehaviour
     private void ExplodeEffect(float radius)
     {
         Quaternion randRot = Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
-        GameObject exp = ObjectPooler.Instance.SpawnFromPool(explosionTag, transform.position, randRot);
+        PoolableObject exp = ObjectPooler.Instance.SpawnFromPool(explosionTag, transform.position, randRot);
         exp.transform.localScale = new Vector3(radius, radius, 1);
-        exp.GetComponent<TTL>().OnSpawn();
     }
 
 

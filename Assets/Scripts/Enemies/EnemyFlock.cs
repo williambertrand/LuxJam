@@ -48,7 +48,7 @@ public class EnemyFlock : MonoBehaviour
 
         for(int i = 0; i < startCount; i++)
         {
-            GameObject newAgent = ObjectPooler.Instance.SpawnFromPool(
+            PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
                 agentPrefabName,
                 Random.insideUnitCircle * startCount * agentDensity,
                 Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))

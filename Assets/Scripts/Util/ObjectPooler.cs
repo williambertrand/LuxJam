@@ -10,7 +10,7 @@ public class ObjectPooler : MonoBehaviour
     public class Pool
     {
         public string tag;
-        public GameObject prefab;
+        public PoolableObject prefab;
         public int capacity;
     }
 
@@ -29,20 +29,20 @@ public class ObjectPooler : MonoBehaviour
     #endregion
 
     public List<Pool> pools;
-    public Dictionary<string, Queue<GameObject>> poolDictionary;
+    public Dictionary<string, Queue<PoolableObject>> poolDictionary;
 
     void SetupPool()
     {
-        poolDictionary = new Dictionary<string, Queue<GameObject>>();
+        poolDictionary = new Dictionary<string, Queue<PoolableObject>>();
 
         foreach (Pool pool in pools)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            Queue<PoolableObject> objectPool = new Queue<PoolableObject>();
             for (int i = 0; i < pool.capacity; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                PoolableObject obj = Instantiate(pool.prefab);
                 obj.transform.SetParent(transform);
-                obj.SetActive(false);
+                obj.gameObject.SetActive(false);
                 objectPool.Enqueue(obj);
             }
 
@@ -52,7 +52,7 @@ public class ObjectPooler : MonoBehaviour
 
     void Start(){}
 
-    public GameObject SpawnFromPool(string tag, Vector3 pos, Quaternion rot)
+    public PoolableObject SpawnFromPool(string tag, Vector3 pos, Quaternion rot)
     {
 
         if (!poolDictionary.ContainsKey(tag))
@@ -61,11 +61,12 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
 
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-        objectToSpawn.SetActive(true);
+        PoolableObject objectToSpawn = poolDictionary[tag].Dequeue();
+        objectToSpawn.gameObject.SetActive(true);
         objectToSpawn.transform.position = pos;
         objectToSpawn.transform.rotation = rot;
         poolDictionary[tag].Enqueue(objectToSpawn);
+        objectToSpawn.OnSpawn();
         return objectToSpawn;
     }
 

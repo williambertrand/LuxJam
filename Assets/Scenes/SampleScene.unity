@@ -640,16 +640,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: Projectile0
-    prefab: {fileID: 181652863159965711, guid: d415bde8a5f1f474f931e87b72962d17, type: 3}
+    prefab: {fileID: -2346588442468293331, guid: d415bde8a5f1f474f931e87b72962d17, type: 3}
     capacity: 40
   - tag: Bomb0
-    prefab: {fileID: 564333983053098504, guid: bc1bc98555d084140b831f04597be547, type: 3}
+    prefab: {fileID: 4456458617149195530, guid: bc1bc98555d084140b831f04597be547, type: 3}
     capacity: 20
   - tag: Explosion0
-    prefab: {fileID: 7770465059929415032, guid: 6826f1726df6a42569091ec4a0e878c0, type: 3}
-    capacity: 20
+    prefab: {fileID: 8226345538222526474, guid: 6826f1726df6a42569091ec4a0e878c0, type: 3}
+    capacity: 10
   - tag: Enemy0
-    prefab: {fileID: 8716414293474283946, guid: a8f5471664480426f96e50d6760f28b1, type: 3}
+    prefab: {fileID: -1110332524368266717, guid: a8f5471664480426f96e50d6760f28b1, type: 3}
     capacity: 250
 --- !u!4 &847985934
 Transform:
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28beb0732be6d4251aaae3dfc579b9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFireTime: 1
+  playerFireTime: 0.2
   lastFire: 0
   projectileTag: Projectile0
   attackPos: {fileID: 1039469480}

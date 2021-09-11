@@ -32,7 +32,7 @@ public class PlayerMouseCommands : MonoBehaviour
         {
             Debug.Log("REMOVE THIS BEFORE BUILD");
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            GameObject b = combat.DropBomb();
+            PoolableObject b = combat.DropBomb();
             b.transform.position = pos;
         }
 

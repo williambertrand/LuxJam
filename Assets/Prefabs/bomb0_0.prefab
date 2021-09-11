@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 564333983053098505}
   - component: {fileID: 564333983053098549}
   - component: {fileID: -1700152347871677879}
+  - component: {fileID: 4456458617149195530}
   m_Layer: 0
   m_Name: bomb0_0
   m_TagString: Bomb
@@ -143,7 +144,7 @@ MonoBehaviour:
   explosionTag: Explosion0
   chainRadiusFactor: 0.5
   chainDamageFactor: 2
-  baseDamage: 5
+  baseDamage: 20
   baseRadius: 3
   explodeDelay: 0.4
   maxRadius: 9
@@ -173,3 +174,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.3159914}
   m_EdgeRadius: 0
+--- !u!114 &4456458617149195530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564333983053098504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8f9a1ab42504ef482434722a2a3c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasTTL: 0
+  duration: 0

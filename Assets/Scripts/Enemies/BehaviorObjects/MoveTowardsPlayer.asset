@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e674067aa6d489a9b03b96f94f8c8e, type: 3}
   m_Name: MoveTowardsPlayer
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  maxDist: 10
+  maxDist: 30
