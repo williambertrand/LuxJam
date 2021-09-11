@@ -13,6 +13,18 @@ public class PlayerShipMovement : MonoBehaviour
     [SerializeField] private float lastThrust;
     [SerializeField] private float showThrustFor;
 
+
+    #region Singleton
+    public static PlayerShipMovement Instance;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {

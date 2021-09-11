@@ -18,9 +18,9 @@ public class PlayerMouseCommands : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 20);
 
-            if (hit.collider.CompareTag("Bomb"))
+            if (hit.collider != null && hit.collider.CompareTag("Bomb"))
             {
                 hit.collider.GetComponent<Bomb>().Explode();
             }
