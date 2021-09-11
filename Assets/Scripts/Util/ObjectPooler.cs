@@ -23,6 +23,7 @@ public class ObjectPooler : MonoBehaviour
         {
             Instance = this;
         }
+        SetupPool();
     }
 
     #endregion
@@ -30,8 +31,7 @@ public class ObjectPooler : MonoBehaviour
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
-    // Start is called before the first frame update
-    void Start()
+    void SetupPool()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
@@ -49,6 +49,8 @@ public class ObjectPooler : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
+
+    void Start(){}
 
     public GameObject SpawnFromPool(string tag, Vector3 pos, Quaternion rot)
     {

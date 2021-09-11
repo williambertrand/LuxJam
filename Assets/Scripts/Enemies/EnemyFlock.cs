@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyFlock : MonoBehaviour
 {
 
-    public EnemyFlockAgent agentPrefab;
+    public string agentPrefabName;
+    //public EnemyFlockAgent agentPrefab;
     public List<EnemyFlockAgent> flockAgents = new List<EnemyFlockAgent>();
     public FlockBehavior flockBehavior;
 
@@ -47,20 +48,17 @@ public class EnemyFlock : MonoBehaviour
 
         for(int i = 0; i < startCount; i++)
         {
-            EnemyFlockAgent newAgent = Instantiate(
-                agentPrefab,
+            GameObject newAgent = ObjectPooler.Instance.SpawnFromPool(
+                agentPrefabName,
                 Random.insideUnitCircle * startCount * agentDensity,
-                Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
-                transform
+                Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
             );
             newAgent.name = "Agent " + i;
-            flockAgents.Add(newAgent);
+            flockAgents.Add(newAgent.GetComponent<EnemyFlockAgent>());
         }
 
     }
 
-    // Update is called once per frame
-    Color maxCol = new Color(160, 101, 205);
     void Update()
     {
         foreach(EnemyFlockAgent agent in flockAgents)

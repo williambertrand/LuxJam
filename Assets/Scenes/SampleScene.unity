@@ -648,6 +648,9 @@ MonoBehaviour:
   - tag: Explosion0
     prefab: {fileID: 7770465059929415032, guid: 6826f1726df6a42569091ec4a0e878c0, type: 3}
     capacity: 20
+  - tag: Enemy0
+    prefab: {fileID: 8716414293474283946, guid: a8f5471664480426f96e50d6760f28b1, type: 3}
+    capacity: 250
 --- !u!4 &847985934
 Transform:
   m_ObjectHideFlags: 0
@@ -1249,7 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788aceecea8dc48239e22c7b462a073d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 8716414293474283945, guid: a8f5471664480426f96e50d6760f28b1, type: 3}
+  agentPrefabName: Enemy0
   flockAgents: []
   flockBehavior: {fileID: 11400000, guid: d9955a621fcec467b8162a36b3e547dc, type: 2}
   startCount: 100
