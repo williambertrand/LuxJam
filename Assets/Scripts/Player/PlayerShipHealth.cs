@@ -74,8 +74,6 @@ public class PlayerShipHealth : MonoBehaviour
         isShieldRegen = false;
         float remaining = amount;
 
-        Debug.Log("Current Shield: " + currentShield);
-
         if(currentShield < amount && currentShield > 0)
         {
             remaining = amount - currentShield;
