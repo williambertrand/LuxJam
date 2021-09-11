@@ -14,15 +14,22 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Enemy hit = collision.gameObject.GetComponent<Enemy>();
-            hit.TakeDamage(damage);
+            // direct hits from projectile are "0" chain
+            hit.TakeDamage(damage, 0, true);
         }
 
         if (collision.gameObject.CompareTag("Bomb"))
         {
             Bomb hit = collision.gameObject.GetComponent<Bomb>();
-            hit.Explode();
+            hit.Explode(0);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            
         }
         // This removes the projectile when it hits out board bounds
+        // ImpactManager.SpawnImpactAt(transform.position)
         gameObject.SetActive(false); // This object is pooled so dont destroy it 
     }
 }

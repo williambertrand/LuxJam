@@ -12,7 +12,8 @@ public class EnemyFlock : MonoBehaviour
 
     //TESTING Agents to create in the scene
     public int startCount = 100;
-    const float agentDensity = 0.5f;
+    [Range(0.2f, 20f)]
+    public float agentSpread = 0.5f;
 
     // MARK - params for how enemies behave
 
@@ -50,7 +51,7 @@ public class EnemyFlock : MonoBehaviour
         {
             PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
                 agentPrefabName,
-                Random.insideUnitCircle * startCount * agentDensity,
+                Random.insideUnitCircle * startCount * agentSpread,
                 Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
             );
             newAgent.name = "Agent " + i;

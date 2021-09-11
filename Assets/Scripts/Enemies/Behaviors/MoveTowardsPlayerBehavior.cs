@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +11,12 @@ public class MoveTowardsPlayerBehavior : FlockBehavior
     {
         Vector2 offset = (Vector2)PlayerShipMovement.Instance.transform.position - (Vector2)agent.transform.position;
         float t = offset.magnitude / maxDist;
-
-        if(t < 0.9f)
+        var threshold = 0.9f;
+        if (agent.hasTarget)
+        {
+            threshold = 0.2f;
+        }
+        if(t < threshold)
         {
             return Vector2.zero;
         }

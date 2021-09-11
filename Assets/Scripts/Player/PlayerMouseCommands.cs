@@ -22,7 +22,7 @@ public class PlayerMouseCommands : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("Bomb"))
             {
-                hit.collider.GetComponent<Bomb>().Explode();
+                hit.collider.GetComponent<Bomb>().Explode(0);
             }
         }
 

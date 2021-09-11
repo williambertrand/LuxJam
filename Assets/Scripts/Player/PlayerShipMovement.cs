@@ -8,6 +8,9 @@ public class PlayerShipMovement : MonoBehaviour
     private Rigidbody2D rigidBody;
     [SerializeField] private float maxVeloxity;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float speed = 40.0f;
+
+    private float boostFactor;
 
     [SerializeField] private GameObject thruster;
     [SerializeField] private float lastThrust;
@@ -30,6 +33,7 @@ public class PlayerShipMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         thruster.SetActive(false);
+        boostFactor = 1.0f;
     }
 
     // Update is called once per frame
@@ -46,7 +50,21 @@ public class PlayerShipMovement : MonoBehaviour
         {
             thruster.SetActive(false);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            boostFactor = 20.0f;
+        }
+        else
+        {
+            boostFactor = 1.0f;
+        }
+
+
     }
+
+    private Vector3 boostScale = new Vector3(2.0f, 2.0f, 1.0f);
+    private Vector3 normalScale = new Vector3(1.4f, 1.0f, 1.0f);
 
     private void ClampVelocity()
     {
@@ -54,16 +72,22 @@ public class PlayerShipMovement : MonoBehaviour
         float yVelClamped = Mathf.Clamp(rigidBody.velocity.y, -maxVeloxity, maxVeloxity);
         rigidBody.velocity = new Vector2(xVelClamped, yVelClamped);
     }
-    private float additionalThrust = 2.0f;
     private void ApplyForwardThrust(float factor)
     {
         if(factor >= 0.01f)
         {
             thruster.SetActive(true);
+            if(boostFactor > 1.0f)
+            {
+                thruster.transform.localScale = boostScale;
+            } else
+            {
+                thruster.transform.localScale = normalScale;
+            }
             lastThrust = Time.time;
         }
         // Up == forward in this setup
-        Vector2 force = transform.up * factor * additionalThrust;
+        Vector2 force = transform.up * factor * boostFactor * speed;
         rigidBody.AddForce(force);
 
     }

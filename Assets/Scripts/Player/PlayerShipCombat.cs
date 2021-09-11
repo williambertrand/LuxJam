@@ -46,7 +46,7 @@ public class PlayerShipCombat : MonoBehaviour
         if (!inventory.ExpendBomb()) return null;
 
         PoolableObject pro = ObjectPooler.Instance.SpawnFromPool(bombTag, dropPos.position, transform.rotation);
-        Vector2 dropVel = rigidBody.velocity * 0.85f;
+        Vector2 dropVel = rigidBody.velocity * -0.6f;
         pro.GetComponent<Rigidbody2D>().velocity = dropVel;
         pro.GetComponent<Rigidbody2D>().angularVelocity = 30;
         lastDrop = Time.time;

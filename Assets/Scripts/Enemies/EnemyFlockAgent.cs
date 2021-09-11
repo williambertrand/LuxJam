@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyFlockAgent : MonoBehaviour
 {
-
+    public bool hasTarget;
     Collider2D agentCollider;
     public Collider2D AgentCollider
     {
