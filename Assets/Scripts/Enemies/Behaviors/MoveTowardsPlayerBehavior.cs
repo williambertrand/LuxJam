@@ -21,6 +21,6 @@ public class MoveTowardsPlayerBehavior : FlockBehavior
             return Vector2.zero;
         }
 
-        return offset * t * t;
+        return offset * t;
     }
 }

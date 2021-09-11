@@ -190,7 +190,7 @@ MonoBehaviour:
   explosionTag: Explosion0
   chainRadiusFactor: 0.5
   chainDamageFactor: 1
-  baseDamage: 5
+  baseDamage: 10
   baseRadius: 2
   explodeDelay: 0.3
   maxRadius: 4

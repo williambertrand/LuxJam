@@ -16,20 +16,21 @@ public class Projectile : MonoBehaviour
             Enemy hit = collision.gameObject.GetComponent<Enemy>();
             // direct hits from projectile are "0" chain
             hit.TakeDamage(damage, 0, true);
+            
         }
 
-        if (collision.gameObject.CompareTag("Bomb"))
+        else if (collision.gameObject.CompareTag("Bomb"))
         {
             Bomb hit = collision.gameObject.GetComponent<Bomb>();
             hit.Explode(0);
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player"))
         {
-            
+            PlayerShipHealth.Instance.TakeDamage(damage);
         }
         // This removes the projectile when it hits out board bounds
-        // ImpactManager.SpawnImpactAt(transform.position)
+        // ImpactManager.SpawnImpactAt(impactTag, transform.position)
         gameObject.SetActive(false); // This object is pooled so dont destroy it 
     }
 }
