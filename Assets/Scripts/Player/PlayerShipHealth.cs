@@ -72,26 +72,23 @@ public class PlayerShipHealth : MonoBehaviour
     {
         lastDamageAt = Time.time;
         isShieldRegen = false;
-        if (currentShield <= 0)
-        {
+        float remaining = amount;
 
-        } else
+        Debug.Log("Current Shield: " + currentShield);
+
+        if(currentShield < amount && currentShield > 0)
+        {
+            remaining = amount - currentShield;
+            currentShield = 0;
+            shieldBar.value = currentShield;
+        } else if (currentShield >= amount)
         {
             currentShield -= amount;
-        }
-
-        if(currentShield < 0)
-        {
-            currentHealth += currentShield;
-            currentShield = 0;
-        } else
-        {
             shieldBar.value = currentShield;
             return;
         }
 
-        currentHealth -= amount;
-        healthBar.value = currentShield / maxShield;
+        currentHealth -= remaining;
         if (currentHealth <= 0)
         {
             healthBar.value = 0;

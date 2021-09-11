@@ -53,7 +53,7 @@ public class PlayerShipMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            boostFactor = 20.0f;
+            boostFactor = 5.0f;
         }
         else
         {

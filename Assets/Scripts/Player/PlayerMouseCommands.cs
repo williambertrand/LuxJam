@@ -34,6 +34,8 @@ public class PlayerMouseCommands : MonoBehaviour
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             PoolableObject b = combat.DropBomb();
             b.transform.position = pos;
+
+            DamagePopupManager.Instance.SpawnPopup(pos, 100);
         }
 
     }

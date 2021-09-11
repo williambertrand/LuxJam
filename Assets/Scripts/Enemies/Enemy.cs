@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float maxHealth;
     [SerializeField] float healthRegenRate; // TBD
+    [SerializeField] int credits;
     private float currentHealth;
 
     [SerializeField] private string explosionTag;
@@ -82,6 +83,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount, int lastChain, bool direct)
     {
         if (isDead) return;
+        DamagePopupManager.Instance.SpawnPopup(transform.position, amount);
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -93,6 +95,7 @@ public class Enemy : MonoBehaviour
     {
         isDead = true;
         ScoreManager.Instance.EnemyKillCount += 1;
+        PlayerInventory.Instance.AddCredits(credits);
         if(direct)
         {
             explodableBehavior.Explode(lastChain);
