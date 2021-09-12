@@ -29,6 +29,8 @@ public class ScoreManager : MonoBehaviour
         {
             enemyKills = value;
             enemyText.text = "" + enemyKills;
+            // Todo: potentially just send this update on player death
+            PlayFabStats.Instance.UpdatePlayerStatistic("kills", value);
         }
     }
 
@@ -44,21 +46,16 @@ public class ScoreManager : MonoBehaviour
         {
             maxChain = value;
             chainText.text = "" + maxChain;
+            PlayFabStats.Instance.UpdatePlayerStatistic("maxChain", value);
         }
     }
 
 
     public float averageChain;  // TBD 
 
-    // Start is called before the first frame update
-    void Start()
+    public void Reset()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        MaxChain = 0;
+        EnemyKillCount = 0;
     }
 }

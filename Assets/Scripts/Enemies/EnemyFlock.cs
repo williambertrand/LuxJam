@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyFlock : MonoBehaviour
 {
 
-    public string agentPrefabName;
+    [SerializeField]
+    public List<string> agentPrefabNames;
     //public EnemyFlockAgent agentPrefab;
     public List<EnemyFlockAgent> flockAgents = new List<EnemyFlockAgent>();
     public FlockBehavior flockBehavior;
@@ -14,6 +15,8 @@ public class EnemyFlock : MonoBehaviour
     public int startCount = 100;
     [Range(0.2f, 20f)]
     public float agentSpread = 0.5f;
+
+    private long agentI = 0;
 
     // MARK - params for how enemies behave
 
@@ -49,12 +52,14 @@ public class EnemyFlock : MonoBehaviour
 
         for(int i = 0; i < startCount; i++)
         {
+            string agentPrefabName = agentPrefabNames[Random.Range(0, agentPrefabNames.Count)];
             PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
                 agentPrefabName,
                 Random.insideUnitCircle * startCount * agentSpread,
                 Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
             );
-            newAgent.name = "Agent " + i;
+            newAgent.name = "Agent " + agentI;
+            agentI += 1;
             flockAgents.Add(newAgent.GetComponent<EnemyFlockAgent>());
         }
 
@@ -88,5 +93,18 @@ public class EnemyFlock : MonoBehaviour
             }
         }
         return nearby;
+    }
+
+    public void SpawnFlockMember(float withinDistFromPlayer)
+    {
+        string agentPrefabName = agentPrefabNames[Random.Range(0, agentPrefabNames.Count)];
+        PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
+            agentPrefabName,
+            PlayerShipMovement.Instance.transform.position + (Vector3)(Random.insideUnitCircle * agentSpread * withinDistFromPlayer),
+            Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
+        );
+        newAgent.name = "Agent " + agentI;
+        agentI += 1;
+        flockAgents.Add(newAgent.GetComponent<EnemyFlockAgent>());
     }
 }
