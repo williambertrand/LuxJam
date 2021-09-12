@@ -24,3 +24,11 @@ I also decied to make everything explodable, so now blowing up an enemy ship can
 
 <img src="https://user-images.githubusercontent.com/11068205/132955201-963f570e-21df-4355-a54f-db240a18eb41.gif" width=500 />
 
+
+### Saturday PM
+A lot of Saturday was spent adding Playfab. Logging in, getting player data and stats. Retrieving the ships catalogue for showing players ships to buy... Ended up taking a bit more time than I expected, but I got most of it working Saturday evening, and finished it up Sunday morning.
+
+### Sunday
+
+In the morning, I updated some enemy ship sprites and added an instruction panel to the pre-game menu scene. I also added Pickups (repair and bomb ammo) that are dropped when destroying enemies with direct shots. 
+
