@@ -25,8 +25,9 @@ public class PlayFabStats : MonoBehaviour
         }
     }
 
+    public delegate void OnStatComplete();
 
-    public void UpdatePlayerStatistic(string name, int value)
+    public void UpdatePlayerStatistic(string name, int value, OnStatComplete onComplete)
     {
         PlayFabClientAPI.UpdatePlayerStatistics(
             new UpdatePlayerStatisticsRequest()
@@ -38,7 +39,7 @@ public class PlayFabStats : MonoBehaviour
                 }
                 }
             },
-            result => Debug.Log("Updated! Player stat: " + name),
+            result => onComplete(),
             error => Debug.Log(error.GenerateErrorReport())
         );
     }

@@ -29,8 +29,6 @@ public class ScoreManager : MonoBehaviour
         {
             enemyKills = value;
             enemyText.text = "" + enemyKills;
-            // Todo: potentially just send this update on player death
-            PlayFabStats.Instance.UpdatePlayerStatistic("kills", value);
         }
     }
 
@@ -46,7 +44,6 @@ public class ScoreManager : MonoBehaviour
         {
             maxChain = value;
             chainText.text = "" + maxChain;
-            PlayFabStats.Instance.UpdatePlayerStatistic("maxChain", value);
         }
     }
 

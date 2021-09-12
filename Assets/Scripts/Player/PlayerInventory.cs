@@ -40,7 +40,7 @@ public class PlayerInventory : MonoBehaviour
         if(bombCount > 0)
         {
             bombCount -= 1;
-            bombCountText.text = "Bombs: " + bombCount;
+            bombCountText.text = "" + bombCount;
             return true;
         }
         else
@@ -53,5 +53,11 @@ public class PlayerInventory : MonoBehaviour
     {
         credits += val;
         creditsText.text = credits.ToString();
+    }
+
+    public void OnBombPickup(int val)
+    {
+        bombCount += val;
+        bombCountText.text = "" + bombCount;
     }
 }

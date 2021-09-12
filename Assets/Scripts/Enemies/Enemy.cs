@@ -99,6 +99,9 @@ public class Enemy : MonoBehaviour
         if(direct)
         {
             explodableBehavior.Explode(lastChain);
+
+            PickupManager.Instance.RequestDrop(transform.position);
+
         } else
         {
             explodableBehavior.ExplodeAfter(lastChain, explodableBehavior.explodeDelay);

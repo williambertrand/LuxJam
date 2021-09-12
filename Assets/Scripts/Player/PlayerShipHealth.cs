@@ -100,7 +100,17 @@ public class PlayerShipHealth : MonoBehaviour
 
     private void OnDeath()
     {
-        // GameManager.Instance.OnGameOver()
+        GameManager.Instance.OnGameOver();
+    }
+
+    public void OnRepair(int amount)
+    {
+        currentHealth += amount;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.value = currentHealth;
     }
 
 

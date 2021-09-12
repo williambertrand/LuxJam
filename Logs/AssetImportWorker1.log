@@ -2559,3 +2559,81 @@ System memory in use after: 219.6 MB.
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3002.
 Total: 3.131077 ms (FindLiveObjects: 0.290113 ms CreateObjectMapping: 0.124436 ms MarkObjects: 2.582243 ms  DeleteObjects: 0.132961 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 278.687693 seconds.
+  path: Assets/Scripts/Gameplay/PickupManager.cs
+  artifactKey: Guid(c715a789c4daa4411b2d04c814454f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Gameplay/PickupManager.cs using Guid(c715a789c4daa4411b2d04c814454f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7b51c9b392881b5f6b48bb346860205') in 0.007029 seconds
+  Import took 0.011220 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000492 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.101 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2104 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 219.8 MB.
+System memory in use after: 219.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3008.
+Total: 2.850174 ms (FindLiveObjects: 0.311603 ms CreateObjectMapping: 0.105604 ms MarkObjects: 2.319546 ms  DeleteObjects: 0.112109 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.283166 seconds.
+  path: Assets/Scripts/Env/Pickup.cs
+  artifactKey: Guid(df647854921d04c8799e21bb7c131eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Env/Pickup.cs using Guid(df647854921d04c8799e21bb7c131eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a684f51ca53de3d5fbefd396c8cae7ee') in 0.006893 seconds
+  Import took 0.011422 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000531 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.213 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2105 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 220.1 MB.
+System memory in use after: 220.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3014.
+Total: 3.332911 ms (FindLiveObjects: 0.365212 ms CreateObjectMapping: 0.130423 ms MarkObjects: 2.694319 ms  DeleteObjects: 0.140670 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 805.602800 seconds.
+  path: Assets/Scripts/Env/Pickup.cs
+  artifactKey: Guid(df647854921d04c8799e21bb7c131eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Env/Pickup.cs using Guid(df647854921d04c8799e21bb7c131eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e653a43df08268daadc3ead7a9763d9') in 0.004753 seconds
+  Import took 0.009139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006400 seconds.
+  path: Assets/Scripts/Env/Pickup.cs
+  artifactKey: Guid(df647854921d04c8799e21bb7c131eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Env/Pickup.cs using Guid(df647854921d04c8799e21bb7c131eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e653a43df08268daadc3ead7a9763d9') in 0.001407 seconds
+  Import took 0.004766 seconds .
+
