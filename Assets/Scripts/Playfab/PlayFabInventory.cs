@@ -4,6 +4,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using PlayFab.Json;
+using TMPro;
 
 
 // Used by the UI to display the catalog items
@@ -21,10 +22,16 @@ public class PlayFabInventory : MonoBehaviour
     public string slectedItem = "";
     private Dictionary<string, int> playerWallet = new Dictionary<string, int>();
 
+    [SerializeField] private TMP_Text currencyText;
+
+
+    private void Start()
+    {
+        RefreshInventory();
+    }
 
     private void OnEnable()
     {
-        Debug.Log("MENU ENABLED");
         GetStore();
     }
 
@@ -43,15 +50,21 @@ public class PlayFabInventory : MonoBehaviour
 
     internal void RefreshInventory()
     {
-        PlayFabClientAPI.GetUserInventory(new PlayFab.ClientModels.GetUserInventoryRequest(), UpdatePlayerInventory, OnError);
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), UpdatePlayerInventory, OnError);
     }
 
     internal void UpdatePlayerInventory(GetUserInventoryResult result)
     {
         playerWallet = result.VirtualCurrency;
         //inventoryView.UpdatePlayerInventory(result);
+        if(result.VirtualCurrency.ContainsKey("CR"))
+        {
+            currencyText.text = "Credits: " + result.VirtualCurrency["CR"];
+        } else
+        {
+            currencyText.text = "Credits: 0";
+        }
     }
-
 
 
     void GetStore()

@@ -7,11 +7,6 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
 
-public static class GameMenuText
-{
-	public static string greetingText;
-}
-
 public class PlayFabAuth : MonoBehaviour
 {
 
@@ -100,7 +95,7 @@ public class PlayFabAuth : MonoBehaviour
 	{
 		Debug.Log("[Auth].OnPlayFabLoginSuccess");
 		infoText.text = "Logged in!";
-		GameMenuText.greetingText = "Welcome back, captain <name>. Remember to head over to the " +
+		GameMenuText.greetingText = "Welcome back, pilot <name>. Remember to head over to the " +
 			"Instructions tab if you need a refresher on how to pilot your ship." +
 			" Or press Launch below to get out there!";
 		GetUserData();
@@ -113,7 +108,7 @@ public class PlayFabAuth : MonoBehaviour
 		infoText.text = "Logged in as guest!";
 		GetUserData();
 		// Todo, loading before play
-		GameMenuText.greetingText = "We're glad to have your guest expertise in the fleet today, captain! Head on over to the Instructions tab to get familiar with how to pilot your ship.";
+		GameMenuText.greetingText = "We're glad to have your guest expertise in the fleet today, pilot! Head on over to the Instructions tab to get familiar with how to pilot your ship.";
 	}
 
 	private void onRegisterError(PlayFabError error)
@@ -125,7 +120,7 @@ public class PlayFabAuth : MonoBehaviour
 	private void onRegisterSuccess(RegisterPlayFabUserResult result)
 	{
 		infoText.text = "Registered!";
-		GameMenuText.greetingText = "Welcome to the Allied Space Force, captain <name>. Head on over to the Instructions tab to get familiar with how to pilot your ship.";
+		GameMenuText.greetingText = "Welcome to the Allied Space Force, pilot <name>. Head on over to the Instructions tab to get familiar with how to pilot your ship.";
 		GetUserData();
 	}
 

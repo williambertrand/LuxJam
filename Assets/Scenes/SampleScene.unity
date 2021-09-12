@@ -355,7 +355,7 @@ RectTransform:
   - {fileID: 139990444}
   - {fileID: 945814438}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -770,6 +770,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMenu: 0
+  killsText: {fileID: 0}
+  chainText: {fileID: 0}
+  currencyText: {fileID: 0}
 --- !u!4 &307387876
 Transform:
   m_ObjectHideFlags: 0
@@ -782,7 +785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407492489
 GameObject:
@@ -812,7 +815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426910687
 GameObject:
@@ -1087,7 +1090,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452363475
 GameObject:
@@ -1652,7 +1655,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757552521
 GameObject:
@@ -1730,6 +1733,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757552521}
   m_CullTransparentMesh: 1
+--- !u!1 &839435800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839435802}
+  - component: {fileID: 839435801}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &839435801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839435800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466c8522ff5e4eb59ae8ff4acb9ede0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TEMP_Damage_Popup_fix: {fileID: 1919287932879558903, guid: 7cc8c7a1e572a4f7b99c3dc5e9ffef94, type: 3}
+--- !u!4 &839435802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839435800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5486208, y: 0.058160204, z: -806.5567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844069968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,6 +1903,12 @@ MonoBehaviour:
   - tag: Enemy1
     prefab: {fileID: 7801542111815785479, guid: 505b13d275d3444b38bf81d76c6e72fc, type: 3}
     capacity: 120
+  - tag: RepairDrop
+    prefab: {fileID: 5588177155893090965, guid: 2eaa636c37f844a6eb608a359375fb17, type: 3}
+    capacity: 10
+  - tag: BombDrop
+    prefab: {fileID: 8333036086195455224, guid: b663626f243194ade9d048ca772fc61f, type: 3}
+    capacity: 10
 --- !u!4 &847985934
 Transform:
   m_ObjectHideFlags: 0
@@ -1868,7 +1921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &887581195
 GameObject:
@@ -1899,7 +1952,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &887581197
 MonoBehaviour:
@@ -2291,7 +2344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081898304
 MonoBehaviour:
@@ -3056,8 +3109,8 @@ MonoBehaviour:
   - Enemy1
   flockAgents: []
   flockBehavior: {fileID: 11400000, guid: d9955a621fcec467b8162a36b3e547dc, type: 2}
-  startCount: 100
-  agentSpread: 3
+  startCount: 60
+  agentSpread: 3.5
   driveFactor: 4
   maxSpeed: 5
   neighborRadius: 1.5
@@ -3763,6 +3816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c715a789c4daa4411b2d04c814454f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drops:
+  - BombDrop
+  - RepairDrop
+  weights: 060000000a000000
 --- !u!4 &1877292131
 Transform:
   m_ObjectHideFlags: 0
@@ -3775,5 +3832,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

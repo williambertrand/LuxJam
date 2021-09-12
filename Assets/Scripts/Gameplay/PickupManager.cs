@@ -5,6 +5,16 @@ using UnityEngine;
 public class PickupManager : MonoBehaviour
 {
 
+    public static PickupManager Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     [SerializeField] public List<string> drops;
     [SerializeField] public List<int> weights;
 
@@ -25,12 +35,13 @@ public class PickupManager : MonoBehaviour
             return;
         }
 
-        int dropNum = Random.Range(0, 10);
+        int dropNum = Random.Range(0, 11);
         for(int i = 0; i < drops.Count; i++)
         {
             if (dropNum < weights[i])
             {
                 Drop(drops[i], pos);
+                return;
             }
         }
     }

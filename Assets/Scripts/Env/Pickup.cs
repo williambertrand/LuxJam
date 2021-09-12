@@ -12,9 +12,6 @@ public class Pickup : MonoBehaviour
 {
     [SerializeField] private PickupType type;
 
-
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -27,9 +24,8 @@ public class Pickup : MonoBehaviour
                 case PickupType.Bomb:
                     PlayerInventory.Instance.OnBombPickup(1);
                     break;
-
-
             }
+            gameObject.SetActive(false);
         }
     }
 }

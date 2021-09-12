@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayFabStats : MonoBehaviour
 {
     public static PlayFabStats Instance;
     public bool isMenu;
+
+
+    [SerializeField] private TMP_Text killsText;
+    [SerializeField] private TMP_Text chainText;
+    [SerializeField] private TMP_Text currencyText;
 
     private void Awake()
     {
@@ -40,8 +47,14 @@ public class PlayFabStats : MonoBehaviour
                 }
             },
             result => onComplete(),
-            error => Debug.Log(error.GenerateErrorReport())
+            onError
         );
+    }
+
+    private void onError(PlayFabError error)
+    {
+        Debug.Log(error.GenerateErrorReport());
+        SceneManager.LoadScene(GameScenes.Menu);
     }
 
     public void GetPlayerStatistics()
@@ -53,21 +66,39 @@ public class PlayFabStats : MonoBehaviour
         );
     }
 
+
     void OnGetStatistics(GetPlayerStatisticsResult result)
     {
         Debug.Log("Received the following Statistics:");
         foreach (var eachStat in result.Statistics)
-            Debug.Log("Statistic (" + eachStat.StatisticName + "): " + eachStat.Value);
+        {
+            if(eachStat.StatisticName == "kills")
+            {
+                if(killsText != null)
+                {
+                    killsText.text = "Alien ships destroyed: " + eachStat.Value;
+                }
+            } else if (eachStat.StatisticName == "maxChain")
+            {
+                if(chainText != null)
+                {
+                    chainText.text = "Longest chain: " + eachStat.Value;
+                }
+            }
+        }
+            
+
+
         // TODO: Set stats in menu
     }
 
-    public void AddCurrency(int amount)
+    public void AddCurrency(long amount, OnStatComplete onComplete)
     {
         AddUserVirtualCurrencyRequest request = new AddUserVirtualCurrencyRequest();
-        request.Amount = amount;
-        request.VirtualCurrency = "RM";
+        request.Amount = (int)amount;
+        request.VirtualCurrency = "CR";
         PlayFabClientAPI.AddUserVirtualCurrency(request,
-            result => Debug.Log("Added currency!"),
+            result => onComplete(),
             error => Debug.Log("Error adding currency: " + error.ErrorMessage)
         );
     }

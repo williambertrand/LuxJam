@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
         {
             explodableBehavior.Explode(lastChain);
 
-            PickupManager.Instance.RequestDrop(transform.position);
+            PickupManager.Instance.RequestDrop(transform.position, 0.25f);
 
         } else
         {

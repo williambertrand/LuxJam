@@ -5,7 +5,6 @@ using TMPro;
 
 public class Menu : MonoBehaviour
 {
-
     [SerializeField] private TMP_Text greetingLabel;
 
     public void LaunchGame()
@@ -20,12 +19,27 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("[Menu].start");
+
         if(GameMenuText.greetingText != null)
         {
             greetingLabel.text = GameMenuText.greetingText;
         } else
         {
-            greetingLabel.text = "Welcome back, captain!";
+            greetingLabel.text = "Welcome back, pilot!";
+        }
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("[Menu].onEnable");
+        if (GameMenuText.greetingText != null)
+        {
+            greetingLabel.text = GameMenuText.greetingText;
+        }
+        else
+        {
+            greetingLabel.text = "Welcome back, pilot!";
         }
     }
 }

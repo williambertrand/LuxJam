@@ -42,4 +42,9 @@ public class DamagePopup : MonoBehaviour
 
         spawnAt = Time.time;
     }
+
+    public void Reset()
+    {
+        text.fontMaterial.SetColor("_FaceColor", Color.white);
+    }
 }
