@@ -2424,7 +2424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40271312, y: 0.7116455}
   m_AnchorMax: {x: 0.40271312, y: 0.7116455}
-  m_AnchoredPosition: {x: 37.1, y: 0.041999817}
+  m_AnchoredPosition: {x: 37.1, y: 0.039289474}
   m_SizeDelta: {x: 58.5931, y: 13.0317}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290615573
@@ -2900,8 +2900,8 @@ MonoBehaviour:
   flockBehavior: {fileID: 11400000, guid: d9955a621fcec467b8162a36b3e547dc, type: 2}
   startCount: 100
   agentSpread: 3
-  driveFactor: 7
-  maxSpeed: 3.6
+  driveFactor: 4
+  maxSpeed: 5
   neighborRadius: 1.5
   neighborAvoidanceFactor: 1.5
 --- !u!1 &1438386221
@@ -3279,7 +3279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40271312, y: 0.42946222}
   m_AnchorMax: {x: 0.40271312, y: 0.42946222}
-  m_AnchoredPosition: {x: 37.1, y: 2.2000008}
+  m_AnchoredPosition: {x: 37.1, y: -0.0000009536743}
   m_SizeDelta: {x: 58.5931, y: 13.0317}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688890080
