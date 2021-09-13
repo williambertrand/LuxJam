@@ -30,5 +30,16 @@ A lot of Saturday was spent adding Playfab. Logging in, getting player data and 
 
 ### Sunday
 
-In the morning, I updated some enemy ship sprites and added an instruction panel to the pre-game menu scene. I also added Pickups (repair and bomb ammo) that are dropped when destroying enemies with direct shots. 
+In the morning, I updated some enemy ship sprites and added an instruction panel to the pre-game menu scene. I also added Pickups (repair and bomb ammo) that are dropped when destroying enemies with direct shots. A lot of the rest of the day was spent tweaking the balance of different enemy ships. 
+
+### Sunday Evening
+Sunday Evening I rushed to add the two new ships that a player can buy and use. I wish I had thought of this needed functionality from the start, because my ship prefabs actually required quite a bit of work to replicate and change parameters for. There's also some very messy, quick code used to display the ship items in the store. Hoepfully I'll come back and clean that up sometime in the future...
+
+### Monday AM
+Monday morning I changed how the probabilities of each enemy ship spawning, and added two more enemy ship types, the long range and slow shooting ship, and a smaller faster, but more fragie ship. Here's an example sprite sheet for the long range shooting enemy ship:
+
+![enemyShip2](https://user-images.githubusercontent.com/11068205/133122564-ffdc50e6-8960-48bb-9916-8dc12c64d032.png)
+
+In the last hour of the jam I just did some more play testing, tweaked some balances, and fixed any small bugs I could find. Submitted!
+
 
