@@ -2,11 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     bool isGameOver;
     [SerializeField] DamagePopup TEMP_Damage_Popup_fix;
+
+    // Kinda messy, will clean this up after the jam
+    [SerializeField] private GameObject defaultShip;
+    [SerializeField] private GameObject AdvancedShip;
+    [SerializeField] private GameObject ExtremeShip;
+
+
+    [Header("Player UI Set up")]
+    [SerializeField] private TMP_Text bombCountText;
+    [SerializeField] private TMP_Text creditsText;
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private Slider shieldSlider;
+    [SerializeField] private Cinemachine.CinemachineVirtualCamera cam;
+
     public static GameManager Instance;
     private void Awake()
     {
@@ -19,6 +35,37 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameOver = false;
+
+        //Set player selected ship
+        Debug.Log("Initializing with ship: " + PlayerSelections.selectedShip);
+        GameObject ship;
+
+        if (PlayerSelections.selectedShip == null)
+        {
+            ship = Instantiate(defaultShip);
+        } else if (PlayerSelections.selectedShip == "ship-1")
+        {
+            ship = Instantiate(AdvancedShip);
+        }
+        else if (PlayerSelections.selectedShip == "ship-2")
+        {
+            ship = Instantiate(ExtremeShip);
+        } else
+        {
+            Debug.LogError("Could not find prefab for: " + PlayerSelections.selectedShip);
+            ship = Instantiate(defaultShip);
+        }
+
+        PlayerShipHealth shipHealth = ship.GetComponent<PlayerShipHealth>();
+        shipHealth.shieldBar = shieldSlider;
+        shipHealth.healthBar = healthSlider;
+        shipHealth.SetupSliders();
+
+        PlayerInventory inventory = ship.GetComponent<PlayerInventory>();
+        inventory.bombCountText = bombCountText;
+        inventory.creditsText = creditsText;
+
+        cam.Follow = ship.transform;
     }
 
     public void OnGameOver()
@@ -29,7 +76,6 @@ public class GameManager : MonoBehaviour
         }
         isGameOver = true;
         Debug.Log("[GameManager].OnGameOver");
-        // TODO! Update stats here instead of on every kill
         PlayFabStats.Instance.UpdatePlayerStatistic("kills", ScoreManager.Instance.EnemyKillCount, () =>
         {
             Debug.Log("Updated player kill count stat");

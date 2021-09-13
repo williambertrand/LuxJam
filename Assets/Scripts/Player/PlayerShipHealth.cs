@@ -17,15 +17,17 @@ public class PlayerShipHealth : MonoBehaviour
     }
     #endregion
 
+    // Refs needed to be set by gamemanager at start
+    public Slider shieldBar;
+    public Slider healthBar;
+
     [SerializeField] private float maxHealth;
     private float currentHealth;
-    [SerializeField] Slider healthBar;
 
     [SerializeField] private float maxShield;
     [SerializeField] private float shieldRegenDelay;
     [SerializeField] private float shieldRegenTickTime;
     [SerializeField] private float shieldRegenTickAmt;
-    [SerializeField] Slider shieldBar;
     private bool isShieldRegen = true;
     private float currentShield;
 
@@ -37,11 +39,15 @@ public class PlayerShipHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentShield = maxShield;
+    }
 
+    public void SetupSliders()
+    {
         healthBar.maxValue = maxHealth;
         shieldBar.maxValue = maxShield;
         healthBar.value = maxHealth;
         shieldBar.value = maxShield;
+
     }
 
     // Update is called once per frame

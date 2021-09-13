@@ -20,8 +20,8 @@ public class PlayerInventory : MonoBehaviour
     public int bombCount;
     public long credits;
 
-    [SerializeField] private TMP_Text bombCountText;
-    [SerializeField] private TMP_Text creditsText;
+    public TMP_Text bombCountText;
+    public TMP_Text creditsText;
 
     // Start is called before the first frame update
     void Start()

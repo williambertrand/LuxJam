@@ -63,7 +63,7 @@ public class PlayerShipMovement : MonoBehaviour
 
     }
 
-    private Vector3 boostScale = new Vector3(2.0f, 2.0f, 1.0f);
+    private Vector3 boostScale = new Vector3(2.5f, 1.0f, 1.0f);
     private Vector3 normalScale = new Vector3(1.4f, 1.0f, 1.0f);
 
     private void ClampVelocity()
