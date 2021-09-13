@@ -6,6 +6,13 @@ using PlayFab.ClientModels;
 using PlayFab.Json;
 using TMPro;
 
+[System.Serializable]
+public class PlayFabStoreListItem
+{
+    public string id;
+    public PlayFabPurchaseItem purchaseItemUI;
+}
+
 
 // Used by the UI to display the catalog items
 public interface ICatalogItem
@@ -24,6 +31,8 @@ public class PlayFabInventory : MonoBehaviour
 
     [SerializeField] private TMP_Text currencyText;
 
+    [SerializeField] private List<PlayFabStoreListItem> items;
+
 
     private void Start()
     {
@@ -32,19 +41,19 @@ public class PlayFabInventory : MonoBehaviour
 
     private void OnEnable()
     {
-        GetStore();
+        GetPlayerInventory();
     }
 
 
-    void MakePurchase()
+    public void MakePurchase(string itemId, int price)
     {
         PlayFabClientAPI.PurchaseItem(new PurchaseItemRequest
         {
             // In your game, this should just be a constant matching your primary catalog
             CatalogVersion = catalogueV,
-            ItemId = slectedItem,
-            Price = 5,
-            VirtualCurrency = "AU"
+            ItemId = itemId,
+            Price = price,
+            VirtualCurrency = "CR"
         }, PurchaseItemSucess, error => Debug.Log("Error: " + error.ErrorMessage));
     }
 
@@ -64,6 +73,22 @@ public class PlayFabInventory : MonoBehaviour
         {
             currencyText.text = "Credits: 0";
         }
+        foreach (PlayFabStoreListItem listItem in items)
+        {
+            //Clear data before showing
+            listItem.purchaseItemUI.Reset();
+        }
+
+        foreach (var item in result.Inventory)
+        {
+            foreach (PlayFabStoreListItem listItem in items)
+            {
+                if (listItem.id == item.ItemId)
+                {
+                    listItem.purchaseItemUI.SetData(item);
+                }
+            }
+        }
     }
 
 
@@ -77,9 +102,43 @@ public class PlayFabInventory : MonoBehaviour
             {
                 // TODO: Add to menu
                 Debug.Log("itemId: " + item.ItemId + " => price: " + item.VirtualCurrencyPrices["RM"]);
+                foreach(PlayFabStoreListItem listItem in items)
+                {
+                    if(listItem.id == item.ItemId)
+                    {
+                        
+                    }
+                }
             }
         },
         OnError);
+    }
+
+    // The double for loop here could be improved, but running out of time :/
+    void GetPlayerInventory()
+    {
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(),
+            result =>
+            {
+                foreach (PlayFabStoreListItem listItem in items)
+                {
+                    //Clear data before showing
+                    listItem.purchaseItemUI.Reset();
+                }
+
+                foreach (var item in result.Inventory)
+                {
+                    foreach (PlayFabStoreListItem listItem in items)
+                    {
+                        if (listItem.id == item.ItemId)
+                        {
+                            listItem.purchaseItemUI.SetData(item);
+                        }
+                    }
+                }
+            },
+            error => Debug.Log("Inventory error: " + error.ErrorMessage)
+        );
     }
 
 
@@ -87,6 +146,7 @@ public class PlayFabInventory : MonoBehaviour
     private void PurchaseItemSucess(PurchaseItemResult result)
     {
         Debug.Log("Purchase succesful");
+        RefreshInventory();
     }
 
 
