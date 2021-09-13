@@ -11,6 +11,7 @@ public class PlayerShipCombat : MonoBehaviour
     [SerializeField] private float lastFire;
     [SerializeField] private string projectileTag;
     [SerializeField] private Transform attackPos;
+    [SerializeField] private Transform attackPos2;
     [SerializeField] private float projectileSpeed;
 
     // Bombs:
@@ -37,6 +38,14 @@ public class PlayerShipCombat : MonoBehaviour
         PoolableObject pro = ObjectPooler.Instance.SpawnFromPool(projectileTag, attackPos.position, transform.rotation);
         Vector2 projectileVel = transform.up * projectileSpeed;
         pro.GetComponent<Rigidbody2D>().velocity = rigidBody.velocity + projectileVel;
+
+        // Messy, but quick
+        if(attackPos2 != null)
+        {
+            PoolableObject pro2 = ObjectPooler.Instance.SpawnFromPool(projectileTag, attackPos2.position, transform.rotation);
+            pro2.GetComponent<Rigidbody2D>().velocity = rigidBody.velocity + projectileVel;
+        }
+
         lastFire = Time.time;
     }
 

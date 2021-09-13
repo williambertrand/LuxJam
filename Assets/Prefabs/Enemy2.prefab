@@ -149,15 +149,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abd81f00b5dd47f5a7dfe359fa5bff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 60
+  maxHealth: 75
   healthRegenRate: 0
   credits: 65
   explosionTag: Impact0
   projectileTag: EnemyProjectile0
-  attackRange: 6
-  attackTime: 0.5
+  attackRange: 6.5
+  attackTime: 0.3
   lastAttack: 0
-  projectileSpeed: 7
+  projectileSpeed: 8.5
   minFireAngle: 10
   maxFireAngle: 110
 --- !u!114 &7801542111815785479

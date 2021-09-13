@@ -96,11 +96,12 @@ public class Enemy : MonoBehaviour
         isDead = true;
         ScoreManager.Instance.EnemyKillCount += 1;
         PlayerInventory.Instance.AddCredits(credits);
+        EnemyFlock.Instance.Remove(flockAgent);
         if(direct)
         {
             explodableBehavior.Explode(lastChain);
 
-            PickupManager.Instance.RequestDrop(transform.position, 0.25f);
+            PickupManager.Instance.RequestDrop(transform.position, 0.4f);
 
         } else
         {

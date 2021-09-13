@@ -97,7 +97,9 @@ public class PlayFabAuth : MonoBehaviour
 		infoText.text = "Logged in!";
 		GameMenuText.greetingText = "Welcome back, pilot <name>. Remember to head over to the " +
 			"Instructions tab if you need a refresher on how to pilot your ship." +
-			" Or press Launch below to get out there!";
+			" Or press Launch below to get out there in the basic, starter ship!" +
+            "" +
+            " To purchase more advanced ships, head over to the Ships tab.";
 		GetUserData();
 	}
 
@@ -120,7 +122,7 @@ public class PlayFabAuth : MonoBehaviour
 	private void onRegisterSuccess(RegisterPlayFabUserResult result)
 	{
 		infoText.text = "Registered!";
-		GameMenuText.greetingText = "Welcome to the Allied Space Force, pilot <name>. Head on over to the Instructions tab to get familiar with how to pilot your ship.";
+		GameMenuText.greetingText = "Welcome to the Allied Space Force, pilot <name>. Head on over to the Instructions tab to get familiar with how to pilot your ship. Or check out the Ships tab to see what kind of ships you can purchase once you've collected some credits.";
 		GetUserData();
 	}
 

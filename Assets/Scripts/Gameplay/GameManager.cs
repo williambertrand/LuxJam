@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     public void OnStatsUpdateComplete()
     {
         Debug.Log("[GameManager].OnStatsUpdateComplete");
-        GameMenuText.greetingText = "Well done out there pilot! You managed to destroy " + ScoreManager.Instance.EnemyKillCount + " enemy ships, with a longest explosion chain of " + ScoreManager.Instance.MaxChain + ". You brought in " + PlayerInventory.Instance.credits + " credits.";
+        GameMenuText.greetingText = "Well done out there pilot! You managed to destroy " + ScoreManager.Instance.EnemyKillCount + " enemy ships, with a longest explosion chain of " + ScoreManager.Instance.MaxChain + ". You brought in " + PlayerInventory.Instance.credits + " credits. Go to the Ships tab to spend your credits.";
         Debug.Log("Updated greeting text: " + GameMenuText.greetingText);
         ScoreManager.Instance.Reset();
         SceneManager.LoadScene(GameScenes.Menu);

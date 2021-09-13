@@ -320,8 +320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxVeloxity: 1.7
-  rotationSpeed: 3.5
-  speed: 85
+  rotationSpeed: 2.75
+  speed: 80
   thruster: {fileID: 5601867673285253495}
   lastThrust: 0
   showThrustFor: 0.3
@@ -337,10 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28beb0732be6d4251aaae3dfc579b9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFireTime: 0.2
+  playerFireTime: 0.4
   lastFire: 0
   projectileTag: Projectile0
   attackPos: {fileID: 5601867673300744730}
+  attackPos2: {fileID: 0}
   projectileSpeed: 9
   playerDropTime: 1.5
   lastDrop: 0
@@ -431,10 +432,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d7c4d7477794805a50c281e1346d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  shieldBar: {fileID: 0}
   healthBar: {fileID: 0}
+  maxHealth: 100
   maxShield: 100
   shieldRegenDelay: 5
   shieldRegenTickTime: 1
   shieldRegenTickAmt: 5
-  shieldBar: {fileID: 0}

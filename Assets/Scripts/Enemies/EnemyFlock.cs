@@ -26,6 +26,7 @@ public class EnemyFlock : MonoBehaviour
     public float maxSpeed = 5;
     [Range(1.0f, 10f)]
     public float neighborRadius = 1.5f;
+    public int maxCount = 100;
 
     [Range(0.0f, 1f)]
     public float neighborAvoidanceFactor = 1.5f;
@@ -38,6 +39,16 @@ public class EnemyFlock : MonoBehaviour
         get
         {
             return squareAvoidanceRadius;
+        }
+    }
+
+
+    public static EnemyFlock Instance;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
         }
     }
 
@@ -97,6 +108,11 @@ public class EnemyFlock : MonoBehaviour
 
     public void SpawnFlockMember(float withinDistFromPlayer)
     {
+        if(flockAgents.Count >= maxCount)
+        {
+            return;
+        }
+
         string agentPrefabName = agentPrefabNames[Random.Range(0, agentPrefabNames.Count)];
         PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
             agentPrefabName,
@@ -106,5 +122,10 @@ public class EnemyFlock : MonoBehaviour
         newAgent.name = "Agent " + agentI;
         agentI += 1;
         flockAgents.Add(newAgent.GetComponent<EnemyFlockAgent>());
+    }
+
+    public void Remove(EnemyFlockAgent agent)
+    {
+        flockAgents.Remove(agent);
     }
 }
