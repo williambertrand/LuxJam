@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasTarget: 0
+  slowFactor: 1
 --- !u!114 &900782761967455033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ MonoBehaviour:
   attackRange: 5
   attackTime: 0.4
   lastAttack: 0
-  projectileSpeed: 8
+  projectileSpeed: 7
   minFireAngle: 20
   maxFireAngle: 90
 --- !u!114 &-1110332524368266717

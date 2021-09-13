@@ -7,6 +7,8 @@ public class EnemyFlock : MonoBehaviour
 
     [SerializeField]
     public List<string> agentPrefabNames;
+    [SerializeField]
+    public List<int> probs;
     //public EnemyFlockAgent agentPrefab;
     public List<EnemyFlockAgent> flockAgents = new List<EnemyFlockAgent>();
     public FlockBehavior flockBehavior;
@@ -52,6 +54,19 @@ public class EnemyFlock : MonoBehaviour
         }
     }
 
+    private string getAgentName()
+    {
+        int t = Random.Range(0, 11);
+        for(int i = 0; i < probs.Count; i++)
+        {
+            if(t < probs[i])
+            {
+                return agentPrefabNames[i];
+            }
+        }
+        return agentPrefabNames[0];
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +78,7 @@ public class EnemyFlock : MonoBehaviour
 
         for(int i = 0; i < startCount; i++)
         {
-            string agentPrefabName = agentPrefabNames[Random.Range(0, agentPrefabNames.Count)];
+            string agentPrefabName = getAgentName();
             PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
                 agentPrefabName,
                 Random.insideUnitCircle * startCount * agentSpread,
@@ -113,7 +128,7 @@ public class EnemyFlock : MonoBehaviour
             return;
         }
 
-        string agentPrefabName = agentPrefabNames[Random.Range(0, agentPrefabNames.Count)];
+        string agentPrefabName = getAgentName();
         PoolableObject newAgent = ObjectPooler.Instance.SpawnFromPool(
             agentPrefabName,
             PlayerShipMovement.Instance.transform.position + (Vector3)(Random.insideUnitCircle * agentSpread * withinDistFromPlayer),
