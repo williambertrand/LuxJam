@@ -2614,3 +2614,65 @@ Received Import Request.
 Start importing Assets/Scenes/GameMenuScene.unity using Guid(f5458b2c9340a4e1089bf5fc012a7a10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a362ee2e816b8db1937396eee5a4175') in 0.014321 seconds
   Import took 0.018022 seconds .
 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.19 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 172.4 MB.
+System memory in use after: 172.5 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2996.
+Total: 3.184176 ms (FindLiveObjects: 0.284072 ms CreateObjectMapping: 0.089233 ms MarkObjects: 2.692341 ms  DeleteObjects: 0.117282 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 322.832713 seconds.
+  path: Assets/Scenes/GameMenuScene.unity
+  artifactKey: Guid(f5458b2c9340a4e1089bf5fc012a7a10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameMenuScene.unity using Guid(f5458b2c9340a4e1089bf5fc012a7a10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99b73e2aea88a05fd72ea2446adf9320') in 0.001416 seconds
+  Import took 0.005166 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000804 seconds.
+  path: Assets/Scenes/GameMenuScene.unity
+  artifactKey: Guid(f5458b2c9340a4e1089bf5fc012a7a10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameMenuScene.unity using Guid(f5458b2c9340a4e1089bf5fc012a7a10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99b73e2aea88a05fd72ea2446adf9320') in 0.001194 seconds
+  Import took 0.004861 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 93.561221 seconds.
+  path: Assets/Prefabs/Enemy2.prefab
+  artifactKey: Guid(505b13d275d3444b38bf81d76c6e72fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy2.prefab using Guid(505b13d275d3444b38bf81d76c6e72fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e831579bd0c11acacdfc8710519a481') in 0.022644 seconds
+  Import took 0.026174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016432 seconds.
+  path: Assets/Prefabs/Enemy2.prefab
+  artifactKey: Guid(505b13d275d3444b38bf81d76c6e72fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy2.prefab using Guid(505b13d275d3444b38bf81d76c6e72fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e831579bd0c11acacdfc8710519a481') in 0.005018 seconds
+  Import took 0.008475 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.902026 seconds.
+  path: Assets/Prefabs/Projectiles/EnemyProjectile0.prefab
+  artifactKey: Guid(232cc6efc080a4563825b475d365e79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Projectiles/EnemyProjectile0.prefab using Guid(232cc6efc080a4563825b475d365e79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf493853089a1f2b7cdf089dd4113c97') in 0.056578 seconds
+  Import took 0.060222 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.08 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 173.5 MB.
+System memory in use after: 173.6 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2997.
+Total: 4.772510 ms (FindLiveObjects: 0.430805 ms CreateObjectMapping: 0.190940 ms MarkObjects: 3.340888 ms  DeleteObjects: 0.808019 ms)
+
