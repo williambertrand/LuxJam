@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyFlockAgent : MonoBehaviour
 {
     public bool hasTarget;
+    public float slowFactor = 1;
     Collider2D agentCollider;
     public Collider2D AgentCollider
     {
@@ -24,6 +25,6 @@ public class EnemyFlockAgent : MonoBehaviour
     public void Move(Vector2 velocity)
     {
         transform.up = velocity;
-        transform.position += (Vector3)velocity * Time.deltaTime;
+        transform.position += (Vector3)velocity * Time.deltaTime * slowFactor;
     }
 }

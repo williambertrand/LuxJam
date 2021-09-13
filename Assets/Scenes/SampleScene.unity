@@ -1945,6 +1945,18 @@ MonoBehaviour:
   - tag: BombDrop
     prefab: {fileID: 8333036086195455224, guid: b663626f243194ade9d048ca772fc61f, type: 3}
     capacity: 10
+  - tag: Enemy2
+    prefab: {fileID: 7911995393868464644, guid: 8b2d141682c20441ea41a7debd78ac18, type: 3}
+    capacity: 20
+  - tag: EnemyProjectileLarge
+    prefab: {fileID: 2511176167803842090, guid: 06b63d33b73ad4e829c90b9629d71813, type: 3}
+    capacity: 40
+  - tag: EnemyProjectileSmall
+    prefab: {fileID: 2138188028065680264, guid: 3ecee46dd0d4549f88cef090b71afbfc, type: 3}
+    capacity: 30
+  - tag: EnemySmall
+    prefab: {fileID: 8557228685972849033, guid: bf725d13cd3f548faa84caf97415869f, type: 3}
+    capacity: 30
 --- !u!4 &847985934
 Transform:
   m_ObjectHideFlags: 0
@@ -2951,6 +2963,8 @@ MonoBehaviour:
   agentPrefabNames:
   - Enemy0
   - Enemy1
+  - Enemy2
+  - EnemySmall
   flockAgents: []
   flockBehavior: {fileID: 11400000, guid: d9955a621fcec467b8162a36b3e547dc, type: 2}
   startCount: 60
