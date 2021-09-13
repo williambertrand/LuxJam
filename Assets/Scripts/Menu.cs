@@ -9,6 +9,8 @@ public class Menu : MonoBehaviour
 
     public void LaunchGame()
     {
+        // Reset selected ship
+        PlayerSelections.selectedShip = null;
         SceneManager.LoadScene(GameScenes.Game);
     }
 
